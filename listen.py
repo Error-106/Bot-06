@@ -18,21 +18,21 @@ def post_data():
         else: post['private']=1
         uid = data['sender']['user_id']# 获取信息发送者的 QQ号码
         message = data['message']  # 获取原始信息
-        bot.keyword(1,message,data,uid)  # 将 Q号和原始信息传到我们的后台
+        bot.keyword("1",message,data,uid)  # 将 Q号和原始信息传到我们的后台
     elif data.get('message_type')=='group':# 如果是群聊信息
         if 'group' in post : post['group']+=1
         else: post['group']=1
         gid = data['group_id'] # 获取群号
         uid = data['sender']['user_id'] # 获取信息发送者的 QQ号码
         message = data['message'] # 获取原始信息
-        bot.keyword(2,message,data,uid, gid)# 将 Q号和原始信息传到我们的后台
+        bot.keyword("2",message,data,uid, gid)# 将 Q号和原始信息传到我们的后台
     elif data.get('message_type')=='guild':# 如果是频道信息
         if 'guild' in post : post['guild']+=1
         else: post['guild']=1
         gid = [data['guild_id'],data['channel_id']]# 获取频道号
         uid = data['sender']['user_id'] # 获取信息发送者的 频道ID
         message = data['message'] # 获取原始信息
-        bot.keyword(3,message,data,uid, gid)# 将 频道ID和原始信息传到我们的后台            
+        bot.keyword("3",message,data,uid, gid)# 将 频道ID和原始信息传到我们的后台            
     if "OK" in post : post["OK"]+=1
     else: post["OK"]=1
     return 'OK'

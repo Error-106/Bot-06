@@ -1,2 +1,3 @@
 # Bot-06
-自己造轮子
+基于GO-CQHTTP的QQ机器人
+by Error-106
