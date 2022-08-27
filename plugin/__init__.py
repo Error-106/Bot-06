@@ -1,4 +1,5 @@
 import plugin.anti_nsfw as nsfw
+import re
 class plugin():
     # pattern = re.compile(r"""\[CQ:image,file=([a-zA-z]+://[^\s&,]*),type=[A-Za-z]{1,5}(,id=4000)[1-5]\]""")
     pimg = re.compile(r"""\[CQ:image,file=([A-Za-z0-9]+).image,url=([a-zA-z]+://[^\s&\]]*)\]""")
