@@ -1,9 +1,9 @@
 import json
 import bot
-from fastapi import * #from flask import *#Flask,request,redirect,url_for,abort
+from flask import *#Flask,request,redirect,url_for,abort
 bot=bot.bot
 post={}
-app = FastAPI()
+app = Flask(__name__)
 #监听端口，获取QQ信息
 @app.route('/', methods=["POST"])
 def post_data():

@@ -1,15 +1,15 @@
 import plugin.anti_nsfw as nsfw
+from PIL import Image
 import re
 class plugin():
     # pattern = re.compile(r"""\[CQ:image,file=([a-zA-z]+://[^\s&,]*),type=[A-Za-z]{1,5}(,id=4000)[1-5]\]""")
     pimg = re.compile(r"""\[CQ:image,file=([A-Za-z0-9]+).image,url=([a-zA-z]+://[^\s&\]]*)\]""")
     def keyword(Type,message,allmssage,uid,gid=None): #Type:消息类型（私聊：1，群聊：2，频道：3），message：消息，uid:QQ号，gid：群号/频道号
-        if log == None: bot.loadlog()
         if Type=="2":
-            scans=bot.nsfwscan(message=message)
+            scans=plugin.nsfwscan(message=message)
             scansflag=False
             for scan in scans:
-                if bot.nsfwif(scans[scan]):
+                if plugin.nsfwif(scans[scan]):
                     scansflag=True
             if scansflag:
                 pass
@@ -18,7 +18,7 @@ class plugin():
 #            url='http://127.0.0.1:5700/send_guild_channel_msg?guild_id='+gid[0]+"&channel_id="+gid[1]+"&message="+message
 #            requests.get(url)
     def nsfwscan(message):
-        imgs=bot.pimg.findall(message)
+        imgs=plugin.pimg.findall(message)
         reimgs={}
         if imgs != []:
             for i in imgs:
