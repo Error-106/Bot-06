@@ -1,3 +1,3 @@
 # Bot-06
-基于GO-CQHTTP的QQ机器人
+QQ机器人（dev重构中）
 by Error-106
